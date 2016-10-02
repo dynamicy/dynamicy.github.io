@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>design_pattern_singleton | YAMASAKI HIKARU</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Problems:to do
+Definition:to do
+Idea:to do
+Application:to do
+UML:to do
+Classical Singleton:
+Singleton Classgithub
+
+class Singleton {
+    private static Singleton instance;
+
+    /* Prevent creating new">
+<meta property="og:type" content="article">
+<meta property="og:title" content="design_pattern_singleton">
+<meta property="og:url" content="http://dynamicy.github.io/2016/10/02/design-pattern-singleton/index.html">
+<meta property="og:site_name" content="YAMASAKI HIKARU">
+<meta property="og:description" content="Problems:to do
+Definition:to do
+Idea:to do
+Application:to do
+UML:to do
+Classical Singleton:
+Singleton Classgithub
+
+class Singleton {
+    private static Singleton instance;
+
+    /* Prevent creating new">
+<meta property="og:updated_time" content="2016-10-02T13:27:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="design_pattern_singleton">
+<meta name="twitter:description" content="Problems:to do
+Definition:to do
+Idea:to do
+Application:to do
+UML:to do
+Classical Singleton:
+Singleton Classgithub
+
+class Singleton {
+    private static Singleton instance;
+
+    /* Prevent creating new">
+  
+    <link rel="alternate" href="/atom.xml" title="YAMASAKI HIKARU" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">YAMASAKI HIKARU</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">personal blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://dynamicy.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-design-pattern-singleton" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/02/design-pattern-singleton/" class="article-date">
+  <time datetime="2016-10-02T13:25:14.000Z" itemprop="datePublished">2016-10-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      design_pattern_singleton
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><h2>Problems:</h2><br>to do<p></p>
+<p></p><h2>Definition:</h2><br>to do<p></p>
+<p></p><h2>Idea:</h2><br>to do<p></p>
+<p></p><h2>Application:</h2><br>to do<p></p>
+<p></p><h2>UML:</h2><br>to do<p></p>
+<p></p><h2>Classical Singleton:</h2><p></p>
+<p></p><h4>Singleton Class</h4><br><a href="https://github.com/dynamicy/DesignPatternStudy/tree/master/CreationalDesignPattern/SingletonPattern/Java/ClassicSingleton" target="_blank" rel="external">github</a><p></p>
+<pre><code>
+class Singleton {
+    private static Singleton instance;
+
+    /* Prevent creating new instance from other class. */
+    private Singleton() {}
+
+    /* If other memebers want to get instance, they have to use this method. */
+    public static Singleton getInstance() {
+        if(instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+    </code></pre>
+
+<pre><code>    &lt;pre&gt;&lt;code&gt;
+    class Main {
+        public static void main(String[] args) {
+            Singleton singletonInstance1 = Singleton.getInstance();
+            Singleton singletonInstance2 = Singleton.getInstance();
+
+            if(singletonInstance1 == singletonInstance2) {
+                System.out.println(&quot;They&apos;re the same instance&quot;);
+            }
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+    &lt;h4&gt;DoubleCheckLockSingleton&lt;/h4&gt;
+    &lt;a href=&quot;https://github.com/dynamicy/DesignPatternStudy/tree/master/CreationalDesignPattern/SingletonPattern/Java/DoubleCheckLockSingleton&quot;&gt;github&lt;/a&gt;
+
+    &lt;pre&gt;&lt;code&gt;
+    public class DCLSingleton {
+        // Use volatile to ensure that works on multithread.
+        private volatile static DCLSingleton instance = null;
+
+        // Make this instance can be accessed only by public method.
+        private DCLSingleton() {}
+
+        public static DCLSingleton getInstance() {
+            // Only if it&apos;s the first for creating instance.
+            if (instance == null) {
+                // The method is synchronized on the class object.
+                synchronized(DCLSingleton.class) {
+                    // If the instance isn&apos;t existed, create the instance.
+                    if(instance == null) {
+                        instance = new DCLSingleton();
+                    }
+                }
+            }
+            return instance;
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+    &lt;pre&gt;&lt;code&gt;public class Main {
+        public static void main(String args[]) {
+            DCLSingleton instance1 = DCLSingleton.getInstance();
+            DCLSingleton instance2 = DCLSingleton.getInstance();
+
+            if(instance1 == instance2) {
+                System.out.println(&quot;They&apos;re the same instance&quot;);
+            }
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+    &lt;h4&gt;EagerlySingleton&lt;/h4&gt;
+    &lt;a href=&quot;https://github.com/dynamicy/DesignPatternStudy/tree/master/CreationalDesignPattern/SingletonPattern/Java/EagerlySingleton&quot;&gt;github&lt;/a&gt;
+
+    &lt;pre&gt;&lt;code&gt;public class ESingleton {
+        // Use static initiallizer, that will make instace created fast.
+        private static ESingleton instance = new ESingleton();
+
+        private ESingleton() {}
+
+        // Just get the instance
+        public static ESingleton getInstance() {
+            return instance;
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+    &lt;pre&gt;&lt;code&gt;public class Main {
+        public static void main(String[] args) {
+            ESingleton singletonInstance1 = ESingleton.getInstance();
+            ESingleton singletonInstance2 = ESingleton.getInstance();
+
+            if(singletonInstance1 == singletonInstance2) {
+                System.out.println(&quot;They&apos;re the same instance&quot;);
+            }
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+    &lt;h4&gt;SynchronizedSingleton&lt;/h4&gt;
+    &lt;a href=&quot;https://github.com/dynamicy/DesignPatternStudy/tree/master/CreationalDesignPattern/SingletonPattern/Java/SynchronizedSingleton&quot;&gt;github&lt;/a&gt;
+
+    &lt;pre&gt;&lt;code&gt;public class SSingleton {
+        private static SSingleton instance = null;
+
+        private SSingleton() {}
+
+        // Make sure that only one thread can access the instance
+        synchronized static public SSingleton getInstance()  {
+            if (instance == null) {
+                instance = new SSingleton();
+            }
+            return instance;
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+    &lt;pre&gt;&lt;code&gt;public class Main {
+        public static void main(String args[]) {
+            SSingleton instance1 = SSingleton.getInstance(); 
+            SSingleton instance2 = SSingleton.getInstance(); 
+
+            if(instance1 == instance2) {
+                System.out.println(&quot;They&apos;re the same instance&quot;);
+            }
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://dynamicy.github.io/2016/10/02/design-pattern-singleton/" data-id="citsnxbgf0000zbsjxpzssbor" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DesignPattern-CreationalPattern/">DesignPattern, CreationalPattern</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DesignPattern-CreationalPattern/">DesignPattern, CreationalPattern</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/DesignPattern-CreationalPattern/" style="font-size: 10px;">DesignPattern, CreationalPattern</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/10/02/design-pattern-singleton/">design_pattern_singleton</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Chris<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
