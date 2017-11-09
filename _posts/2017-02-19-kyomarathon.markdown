@@ -12,3 +12,5 @@ categories: running
 ![Kyoto Marathon 03](kyomarathon/13.jpg)
 
 ![Kyoto Marathon 04](kyomarathon/14.jpg)
+
+![Kyoto Marathon 05](https://github.com/dynamicy/dynamicy.github.io/blob/master/_posts/kyomarathon/15.jpg)
